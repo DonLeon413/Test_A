@@ -7,8 +7,15 @@ using System.Threading.Tasks;
 
 namespace Test_A
 {
+    /// <summary>
+    /// 
+    /// </summary>
     class Program
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="args"></param>
         static void Main( string[] args )
         {
             while( true )
