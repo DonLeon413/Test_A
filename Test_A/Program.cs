@@ -92,7 +92,6 @@ namespace Test_A
                               .Where( t => false == String.IsNullOrWhiteSpace( t ) )
                               .Select( t => UInt32.Parse( t ) );
         }
-                                    
 
         /// <summary>
         /// 
