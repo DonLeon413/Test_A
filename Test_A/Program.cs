@@ -11,7 +11,6 @@ namespace Test_A
     {
         static void Main( string[] args )
         {
-
             while( true )
             {
                 Console.WriteLine( "\n\n--------------------" );
