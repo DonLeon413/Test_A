@@ -57,7 +57,6 @@ namespace Test_A
 
                     foreach( UInt32 note in ParseTakt( takt ) )
                     {
-
                         beat_duration = beat_duration + MusicNum.From( note );                        
                     }
                     
