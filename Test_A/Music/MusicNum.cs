@@ -38,15 +38,25 @@ namespace Music
                                       this.Numerator, this.Denumerator );
             }
 
-            if( 0 == this.Numerator % this.Denumerator && this.Numerator >= this.Denumerator )
+            if( 0 == this.Numerator )
             {
-                return String.Format( "{0}", this.Numerator / this.Denumerator );
+                return "0";
             }
 
-            return ( 0 != this.Numerator ?
-                        String.Format( "{0}/{1}", this.Numerator, this.Denumerator )
-                        :
-                        "0" );
+
+            UInt32 round = this.Numerator / this.Denumerator;
+            UInt32 new_numerator = this.Numerator - round * this.Denumerator;
+
+            StringBuilder sb = new StringBuilder();
+            if( 0 != round )
+            {
+                sb.Append( String.Format( "{0} ", round ) );
+            }
+
+            sb.Append( String.Format("{0}/{1}", new_numerator, this.Denumerator ) );
+
+            return sb.ToString();
+
         }
 
         /// <summary>

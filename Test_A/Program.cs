@@ -11,6 +11,8 @@ namespace Test_A
     {
         static void Main( string[] args )
         {
+
+
             while( true )
             {
                 Console.WriteLine( "\n\n--------------------" );
@@ -43,6 +45,7 @@ namespace Test_A
         /// <param name="takts"></param>
         private static void AnalyzeTakts( IEnumerable<String> takts, MusicNum beat )
         {
+
             Int32 count_takts = 0;
             MusicNum beat_duration = null;
 
