@@ -54,7 +54,6 @@ namespace Test_A
                 try
                 {
                     Console.WriteLine( String.Format( "--- {0} -- Takt: {1} -----", count_takts++, takt ) );
-                                        
 
                     foreach( UInt32 note in ParseTakt( takt ) )
                     {
