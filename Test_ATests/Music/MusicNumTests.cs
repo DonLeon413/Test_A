@@ -93,6 +93,15 @@ namespace Test_A.Tests
             Assert.IsTrue( 9 == result.Numerator );
             Assert.IsTrue( 16 == result.Denumerator );
 
+            result = obj1 + null; // 4/8
+            Assert.IsTrue( 4 == result.Numerator );
+            Assert.IsTrue( 8 == result.Denumerator );
+
+            result = null + obj1; // 4/8
+            Assert.IsTrue( 4 == result.Numerator );
+            Assert.IsTrue( 8 == result.Denumerator );
+
+
             result = MusicNum.Parse( "0/2" ) + obj2; // 0/2 + 1/2 = 1/2
 
             Assert.IsTrue( 1 == result.Numerator );
