@@ -6,11 +6,47 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Test_A.Tests
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [TestClass()]
     public class MusicNumberTests
     {
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [TestMethod()]
+        public void ParseTest()
+        {
+            MusicNum obj = MusicNum.Parse( "1/2" );
+            Assert.IsTrue( 1 == obj.Numerator );    // числитель
+            Assert.IsTrue( 2 == obj.Denumerator );  // Знаменатель
+
+            obj = MusicNum.Parse( "0/2" );
+            Assert.IsTrue( 0 == obj.Numerator );    // числитель
+            Assert.IsTrue( 2 == obj.Denumerator );  // Знаменатель
+
+            obj = MusicNum.Parse( "2" );
+            Assert.IsTrue( 2 == obj.Numerator );    // числитель
+            Assert.IsTrue( 1 == obj.Denumerator );  // Знаменатель
+
+            obj = MusicNum.Parse( "2/" );
+            Assert.IsTrue( 2 == obj.Numerator );    // числитель
+            Assert.IsTrue( 1 == obj.Denumerator );  // Знаменатель
+
+
+            var ex = Assert.ThrowsException<MusNoteException>( () => {
+
+                obj = MusicNum.Parse( "2/0" );
+
+            } );
+            Assert.IsTrue( 0 == String.Compare( ex.Message, "Error parse '2/0' to MusicNum") );
+        }
+
         [TestMethod()]
         public void NormalizeTest()
         {

@@ -105,12 +105,13 @@ namespace Music
                                    .ToArray();
 
             if( tokens != null && ( tokens.Length == 1 || ( tokens.Length == 2 
+                                                            && 0 != tokens[1]
                                                             && tokens[1].IsPowerOfTwo() ) ) )
-            {
+            {                
                 return new MusicNum( tokens[0], (tokens.Length == 1 ? 1 : tokens[1] ) );
             }
 
-            throw new MusNoteException( String.Format( "Error parse '{0}' to MusicNumber/", str ) );
+            throw new MusNoteException( String.Format( "Error parse '{0}' to MusicNum", str ) );
 
         }
 
