@@ -99,19 +99,28 @@ namespace Music
                 throw new MusNoteException( "String empty." );
             }
 
-            var str_tokens = str.Split( new char[] { '/', '\\' } );
-            var tokens = str_tokens.Where( t => false == String.IsNullOrWhiteSpace( t ) )
+            UInt32[] tokens = null;
+            try
+            {
+
+                var str_tokens = str.Split( new char[] { '/', '\\' } );
+                tokens = str_tokens.Where( t => false == String.IsNullOrWhiteSpace( t ) )
                                    .Select( t => UInt32.Parse( t ) )
                                    .ToArray();
 
-            if( tokens != null && ( tokens.Length == 1 || ( tokens.Length == 2 
-                                                            && 0 != tokens[1]
-                                                            && tokens[1].IsPowerOfTwo() ) ) )
-            {                
-                return new MusicNum( tokens[0], (tokens.Length == 1 ? 1 : tokens[1] ) );
+            }catch( Exception ex )
+            {
+                throw new MusNoteException( String.Format( "Error parse '{0}'", str ) );
             }
-
-            throw new MusNoteException( String.Format( "Error parse '{0}' to MusicNum", str ) );
+            
+            if( tokens != null && ( tokens.Length == 1 || ( tokens.Length == 2
+                                                           && 0 != tokens[1]
+                                                           && tokens[1].IsPowerOfTwo() ) ) )
+            {
+                return new MusicNum( tokens[0], ( tokens.Length == 1 ? 1 : tokens[1] ) );
+            }
+            
+            throw new MusNoteException( String.Format( "Data incorrect: '{0}' to MusicNum", str ) );
 
         }
 

@@ -44,7 +44,7 @@ namespace Test_A.Tests
                 obj = MusicNum.Parse( "2/0" );
 
             } );
-            Assert.IsTrue( 0 == String.Compare( ex.Message, "Error parse '2/0' to MusicNum") );
+            Assert.IsTrue( 0 == String.Compare( ex.Message, "Data incorrect: '2/0' to MusicNum") );
         }
 
         [TestMethod()]

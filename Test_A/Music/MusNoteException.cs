@@ -13,6 +13,16 @@ namespace Music
             Exception
     {
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="ex"></param>
+        public MusNoteException( String message, Exception ex ):
+              base( message, ex )
+        {
+        }
+
+        /// <summary>
         /// Ctor
         /// </summary>
         /// <param name="message"></param>
